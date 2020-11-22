@@ -1,9 +1,9 @@
 const respond = require('../helpers/respond');
 const TransactionModel = require('../models/TransactionModel');
 
-const register = (request, response) => {
+const Transaction = (request, response) => {
     const { email, sku, quantity, note } = request.body;
-    UserModel.insertMany([
+    TransactionModel.insertMany([
         {
             email,
             sku,
@@ -12,14 +12,14 @@ const register = (request, response) => {
         }
     ]).then(
         (data) => {
-            return respond(response, true, 'Register berhasil', data, 201);
+            return respond(response, true, 'Transaction berhasil', data, 201);
         }
     ).catch(
         (e) => {
-            return respond(response, false, 'Register gagal', e, 500);
+            return respond(response, false, 'Transaction gagal', e, 500);
         }
     )
     
 }
 
-module.exports = TransactionModel;
+module.exports = Transaction;
