@@ -16,6 +16,10 @@ const validationtransaction = require("../middlewares/validationtransaction");
 const transaction = require("../controllers/transaction");
 
 //product 
+const validationproduct = require("../middlewares/validationproduct");
+const product = require("../controllers/product");
+const updateproduct = require("../controllers/updateproduct");
+const deleteProduct = require('../controllers/deleteproduct');
 
 //users
 route.post('/register', validationRegister, register);
@@ -35,6 +39,16 @@ route.delete('/transaction/:email', deleteTrans);
 //product
 route.get('/product', getAllProduct);
 route.get('/product/:sku', getOneProduct);
+route.post('/createproduct', validationproduct, product);
+route.patch('/product', updateproduct); 
+route.delete('/product/:sku', deleteProduct);
+
+
+
+
+
+
+
 
 
 module.exports  = route;

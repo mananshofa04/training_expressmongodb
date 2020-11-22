@@ -16,8 +16,8 @@ exports.getAllProduct = async (request, response) => {
 
 exports.getOneProduct = async (request, response) => {
     try {
-        const { email } = request.params;
-        const data = await ProductModel.findOne({ email });
+        const { sku } = request.params;
+        const data = await ProductModel.findOne({ sku });
         if (data && data !== '') {
             return respond(response, true, 'data Product', data, 200)
         }
