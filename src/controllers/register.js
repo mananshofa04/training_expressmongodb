@@ -2,14 +2,14 @@ const respond = require('../helpers/respond');
 const UserModel = require('../models/UserModel');
 
 const register = (request, response) => {
-    const { name, age, address, hoby, gender } = request.body;
+    const { email, password, name, telephone, address} = request.body;
     UserModel.insertMany([
         {
+            email,
+            password,
             name, 
-            address,
-            gender,
-            age: age || '',
-            hoby: hoby || '',
+            telephone,
+            address 
         }
     ]).then(
         (data) => {

@@ -1,9 +1,9 @@
 const respond = require('../helpers/respond');
 
 const validationRegister = (request, response, next) => {
-    const { name, gender, address } = request.body;
-    if (!name || name === '' || !gender || gender === '' || !address || !address === ''){
-        return respond(response, false, 'Data name, age, address is required', '', 400);
+    const { email, password, name, telephone, address } = request.body;
+    if (!email || email === '' || !password || password === '' || !name || !name === '' || !telephone || !telephone === '' || !address || !address === '') {
+        return respond(response, false, 'Data email, password, name, telephone, address is required', '', 400);
     }
 
     next();

@@ -3,8 +3,8 @@ const UserModel = require('../models/UserModel');
 
 module.exports = async (request, response) => {
     try {
-        const { name } = request.params;
-        const data = await UserModel.findOne({ name });
+        const { email } = request.params;
+        const data = await UserModel.findOne({ email });
         if (data && data !== '') {
             const delUser = await UserModel.deleteOne({
                 _id: data._id,

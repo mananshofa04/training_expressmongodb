@@ -3,17 +3,17 @@ const UserModel = require('../models/UserModel');
 
 module.exports = async (request, response) => {
     try {
-        const { name, age, address, hoby, gender } = request.body;
-        const data = await UserModel.findOne({ name });
+        const { email, password, name, telephone, address } = request.body;
+        const data = await UserModel.findOne({ email });
         if (data && data !== '') {
             const update = await UserModel.updateOne({
                 _id: data._id,
             }, {
+                email: email || data.email,
+                password: password || data.password,
                 name: name || data.name,
-                age: age || data.age,
-                address: address || data.address,
-                hoby: hoby || data.hoby,
-                gender: gender || data.gender
+                telephone: telephone || data.telephone,
+                address: address || data.address
             })
 
             if (update) {

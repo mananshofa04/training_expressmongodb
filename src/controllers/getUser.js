@@ -16,8 +16,8 @@ exports.getAllUser = async (request, response) => {
 
 exports.getOneUser = async (request, response) => {
     try {
-        const { name } = request.params;
-        const data = await UserModel.findOne({ name });
+        const { email } = request.params;
+        const data = await UserModel.findOne({ email });
         if (data && data !== '') {
             return respond(response, true, 'data user', data, 200)
         }
